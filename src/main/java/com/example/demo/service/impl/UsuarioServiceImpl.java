@@ -48,9 +48,8 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 
 	@Override
-	public UsuarioEntity bucarUsuarioPorCorreo(String correo) {
-		// TODO Auto-generated method stub
-		return null;
+	public UsuarioEntity buscarUsuarioPorCorreo(String correo) {
+		return usuarioRepository.findByCorreo(correo);
 	}
 
 }

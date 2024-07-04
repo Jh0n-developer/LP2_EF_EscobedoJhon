@@ -28,8 +28,8 @@ public class UsuarioController {
 	
 	@PostMapping("/registrar")
 	public String registrarUsuario(UsuarioEntity usuarioEntity, Model model, @RequestParam("foto")MultipartFile foto) {
-
 		usuarioService.registrarUsuario(usuarioEntity, model, foto);
+		model.addAttribute("mensajeConfirmacion", "Usuario registrado con éxito");
 		return "registrar_usuario";
 	}
 	
@@ -50,4 +50,10 @@ public class UsuarioController {
 		model.addAttribute("usuario", new UsuarioEntity());
 		return "login";
 	}
+	
+	@GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate(); 
+        return "redirect:/";  
+    }
 }
