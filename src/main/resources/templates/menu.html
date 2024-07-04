@@ -16,7 +16,6 @@
             </div>
         </div>
         <hr>
-        <!-- Contenedor para los botones de "Agregar" y "Generar PDF" -->
         <div class="row mb-3">
             <div class="col-md-6">
                 <a th:href="@{/agregar}" class="btn btn-primary">Agregar Producto</a>
@@ -31,6 +30,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Nombre</th>
                             <th>Categoría</th>
                             <th>Precio</th>
@@ -40,6 +40,7 @@
                     </thead>
                     <tbody>
                         <tr th:each="producto : ${productos}">
+                            <td th:text="${producto.idProducto}"></td>
                             <td th:text="${producto.nombreProducto}"></td>
                             <td th:text="${producto.categoriaEntity != null ? producto.categoriaEntity.descripcion : ''}"></td>
                             <td th:text="${producto.precio}"></td>

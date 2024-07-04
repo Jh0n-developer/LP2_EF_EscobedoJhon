@@ -63,6 +63,16 @@
             <artifactId>jbcrypt</artifactId>
             <version>0.4</version>
         </dependency>
+        <dependency>
+  			<groupId>com.github.librepdf</groupId>
+  			<artifactId>openpdf</artifactId>
+  			<version>2.0.2</version>
+		</dependency>
+        <dependency>
+        	<groupId>com.example</groupId>
+        	<artifactId>LP2_T2_EscobedoJhon</artifactId>
+        	<version>0.0.1-SNAPSHOT</version>
+        </dependency>
 	</dependencies>
 
 	<build>

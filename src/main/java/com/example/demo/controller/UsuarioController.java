@@ -10,7 +10,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.entity.UsuarioEntity;
 import com.example.demo.service.UsuarioService;
-import com.example.demo.utils.Utilitarios;
 
 import jakarta.servlet.http.HttpSession;
 
