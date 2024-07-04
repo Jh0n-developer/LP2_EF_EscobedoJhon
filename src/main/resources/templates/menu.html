@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú de Productos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Bienvenido, <span th:text="${usuario.nombres + ' ' + usuario.apellidos}"></span>!</h2>
+            </div>
+            <div class="col-md-6 text-right">
+                <a th:href="@{/logout}" class="btn btn-danger">Cerrar Sesión</a>
+            </div>
+        </div>
+        <hr>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <a th:href="@{/agregar}" class="btn btn-primary">Agregar Producto</a>
+            </div>
+            <div class="col-md-6 text-right">
+                <a th:href="@{/generar_pdf}" class="btn btn-info">Generar PDF</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Lista de Productos</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Categoría</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="producto : ${productos}">
+                            <td th:text="${producto.idProducto}"></td>
+                            <td th:text="${producto.nombreProducto}"></td>
+                            <td th:text="${producto.categoriaEntity != null ? producto.categoriaEntity.descripcion : ''}"></td>
+                            <td th:text="${producto.precio}"></td>
+                            <td th:text="${producto.stock}"></td>
+                            <td>
+                                <a th:href="@{/actualizar/{id}(id=${producto.idProducto})}" class="btn btn-sm btn-primary">Actualizar</a>
+                                <a th:href="@{/eliminar/{id}(id=${producto.idProducto})}" class="btn btn-sm btn-danger"
+                                   onclick="return confirm('¿Está seguro de que desea eliminar este producto?');">Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
